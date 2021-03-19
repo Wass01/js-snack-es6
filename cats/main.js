@@ -59,21 +59,20 @@ $(document).ready(function() {
   const femmina = gatti.filter((item) => {return item.sesso == "Femmina"});
 
   maschio.forEach((item) => {
-    $("#gatti-fiocco").append(`<li class="azzurro giovane">${item.nome} è ${item.sesso} <i class="fas fa-ribbon"></i></li>`);
+    $("#gatti-fiocco").append(`<li id="${item.nome}" class="azzurro giovane">${item.nome} è ${item.sesso} <i class="fas fa-ribbon"></i></li>`);
     // verifico età e assegno opacità
     if (item.eta > 7) {
-      $("li.azzurro").removeClass("giovane");
+      $("#"+item.nome).removeClass("giovane");
     }
-
   });
 
+
   femmina.forEach((item) => {
-    $("#gatti-fiocco").append(`<li class="rosa giovane">${item.nome} è ${item.sesso} <i class="fas fa-ribbon"></i></li>`);
+    $("#gatti-fiocco").append(`<li id="${item.nome}" class="rosa giovane">${item.nome} è ${item.sesso} <i class="fas fa-ribbon"></i></li>`);
     // verifico età e assegno opacità
     if (item.eta > 7) {
-      $("li.rosa").removeClass("giovane");
+      $("#"+item.nome).removeClass("giovane");
     }
-
   });
 
 });
