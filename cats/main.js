@@ -31,7 +31,7 @@ $(document).ready(function() {
     },
     {
       nome: "Cloe",
-      eta: 4,
+      eta: 3,
       colore: "Nero",
       sesso: "Femmina"
     },
@@ -73,6 +73,7 @@ $(document).ready(function() {
     if (item.eta > 7) {
       $("li.rosa").removeClass("giovane");
     }
+
   });
 
 });

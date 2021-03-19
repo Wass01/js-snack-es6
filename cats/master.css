@@ -6,6 +6,6 @@
   color: #ff66ef;
 }
 
-.giovane i{
+.giovane > i{
   opacity: 0.3;
 }
