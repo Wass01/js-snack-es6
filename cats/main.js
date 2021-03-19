@@ -1,9 +1,17 @@
+// milestone 1
 // Definire un array di oggetti;
 // ogni oggetto rappresenta un gatto, che è caratterizzato da:
 // nome, età, colore e sesso.
 // Tramite la funzione .forEach(),
 // stampare in pagina tutti i gattini,
 // ciascuno con il proprio colore e il proprio nome.
+
+// Milestone 2
+// Dividere i gatti in due contenitori distinti in base al sesso
+// e aggiungere a fianco di ogni gattino un fiocco colorato di rosa,
+// se femmina, o di blu, se maschio.
+// Il colore del fiocco deve essere più tenue se il gatto è più giovane,
+// più scuro se il gatto è più vecchio.
 
 
 $(document).ready(function() {
@@ -34,15 +42,37 @@ $(document).ready(function() {
       sesso: "Femmina"
     },
     {
-      nome: "Penny",
-      eta: 7,
+      nome: "Mike",
+      eta: 6,
       colore: "Rosso",
       sesso: "Maschio"
     }
   ];
 
+  // stampo in pagina con forEach tutti i gattini(nome e colore)
   gatti.forEach((item) => {
     $("#gatti").append(`<li>${item.nome} è di colore ${item.colore}</li>`);
   });
+
+  // creo due variabili che dividono il sesso e le faccio filtrare
+  const maschio = gatti.filter((item) => {return item.sesso == "Maschio"});
+  const femmina = gatti.filter((item) => {return item.sesso == "Femmina"});
+
+  maschio.forEach((item) => {
+    $("#gatti-fiocco").append(`<li class="azzurro giovane">${item.nome} è ${item.sesso} <i class="fas fa-ribbon"></i></li>`);
+    // verifico età e assegno opacità
+    if (item.eta > 7) {
+      $("li.azzurro").removeClass("giovane");
+    }
+
+  });
+
+  femmina.forEach((item) => {
+    $("#gatti-fiocco").append(`<li class="rosa giovane">${item.nome} è ${item.sesso} <i class="fas fa-ribbon"></i></li>`);
+    // verifico età e assegno opacità
+    if (item.eta > 7) {
+      $("li.rosa").removeClass("giovane");
+    }
+  });
+
 });
-// stampo in pagina con forEach tutti i gattini(nome e colore)

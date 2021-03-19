@@ -1,0 +1,11 @@
+.azzurro > i{
+  color: #00f2ff;
+}
+
+.rosa > i{
+  color: #ff66ef;
+}
+
+.giovane i{
+  opacity: 0.3;
+}
