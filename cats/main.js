@@ -13,6 +13,12 @@
 // Il colore del fiocco deve essere più tenue se il gatto è più giovane,
 // più scuro se il gatto è più vecchio.
 
+// Milestone 3
+// Creare un nuovo array con prima tutti i gattini femmina
+// e poi tutti i gattini maschio,
+// inserendo solamente nome e colore
+// e opacità del fiocco per ogni gatto.
+
 
 $(document).ready(function() {
   // definisco array di oggetti gatti
@@ -25,7 +31,7 @@ $(document).ready(function() {
     },
     {
       nome: "Jack",
-      eta: 2,
+      eta: 8,
       colore: "Bianco",
       sesso: "Maschio"
     },
@@ -74,5 +80,20 @@ $(document).ready(function() {
       $("#"+item.nome).removeClass("giovane");
     }
   });
+
+  // creo nuovo array
+  const newGatti = [...femmina, ...maschio];
+
+  newGatti.forEach((item) => {
+    if (item.eta < 7) {
+      item.opacity = 0.3;
+    } else {
+      item.opacity = 1;
+    }
+    $("#newgatti").append(`<li>${item.nome} è di colore ${item.colore} e la sua opacità legata all'età è ${item.opacity}</li>`);
+  });
+
+
+
 
 });
